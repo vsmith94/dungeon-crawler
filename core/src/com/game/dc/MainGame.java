@@ -30,5 +30,4 @@ public class MainGame extends ApplicationAdapter {
 		batch.dispose();
 		img.dispose();
 	}
-        "ASDASD"
 }
