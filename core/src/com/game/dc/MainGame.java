@@ -11,6 +11,7 @@ import com.badlogic.gdx.maps.MapRenderer;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
 import com.game.entities.Entity;
+import com.game.entities.characters.CharacterEntity;
 import com.game.util.SimpleMapRenderer;
 
 public class MainGame extends Game {
@@ -24,32 +25,33 @@ public class MainGame extends Game {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        
-        //Map Testing stuff
-        img = new Texture("badlogic.jpg");
+
+        // Map Testing stuff
+        CharacterEntity player = new CharacterEntity(new Texture("player_idle.png"));
         map = new Map();
         MapLayer mapLayer = new MapLayer();
-        Entity e = new Entity(img);
+        mapLayer.getObjects().add(player);
+        player.getSprite().setSize(64, 64);
         map.getLayers().add(mapLayer);
         mapRenderer = new SimpleMapRenderer(map, batch);
 
         viewport = new ScalingViewport(Scaling.fit, 1280, 720);
-        viewport.apply(true);
+        viewport.apply(false);
     }
 
     @Override
     public void render() {
-        //Reset screen
+        // Reset screen
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        //Viewport controls
+        // Viewport controls
         viewport.update(1280, 720);
         batch.setProjectionMatrix(viewport.getCamera().combined);
 
         batch.begin();
         mapRenderer.render();
-//        batch.draw(img, 0, 0, 800, 600);
+        // batch.draw(img, 0, 0, 800, 600);
         batch.end();
     }
 
