@@ -5,28 +5,57 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.Map;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapRenderer;
+import com.badlogic.gdx.utils.Scaling;
+import com.badlogic.gdx.utils.viewport.ScalingViewport;
+import com.game.entities.Entity;
+import com.game.util.SimpleMapRenderer;
 
 public class MainGame extends Game {
-	SpriteBatch batch;
-	Texture img;
-	@Override
-	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
-	}
 
-	@Override
-	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
-	}
-	
-	@Override
-	public void dispose () {
-		batch.dispose();
-		img.dispose();
-	}
+    SpriteBatch batch;
+    Texture img;
+    ScalingViewport viewport;
+    Map map;
+    SimpleMapRenderer mapRenderer;
+
+    @Override
+    public void create() {
+        batch = new SpriteBatch();
+        
+        //Map Testing stuff
+        img = new Texture("badlogic.jpg");
+        map = new Map();
+        MapLayer mapLayer = new MapLayer();
+        Entity e = new Entity(img);
+        map.getLayers().add(mapLayer);
+        mapRenderer = new SimpleMapRenderer(map, batch);
+
+        viewport = new ScalingViewport(Scaling.fit, 1280, 720);
+        viewport.apply(true);
+    }
+
+    @Override
+    public void render() {
+        //Reset screen
+        Gdx.gl.glClearColor(1, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        //Viewport controls
+        viewport.update(1280, 720);
+        batch.setProjectionMatrix(viewport.getCamera().combined);
+
+        batch.begin();
+        mapRenderer.render();
+//        batch.draw(img, 0, 0, 800, 600);
+        batch.end();
+    }
+
+    @Override
+    public void dispose() {
+        batch.dispose();
+        img.dispose();
+    }
 }
