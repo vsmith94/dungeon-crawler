@@ -9,6 +9,6 @@ package com.game.entities.characters;
  *
  * @author lpela
  */
-public class Enemy extends Character {
+public class Enemy extends CharacterEntity {
     
 }

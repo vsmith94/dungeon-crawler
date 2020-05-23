@@ -9,9 +9,9 @@ package com.game.entities.characters;
  *
  * @author lpela
  */
-public class Warrior extends Character {
-    public Character createWarrior () {
-        Character a = new Character ("Warrior", 150, 50, 100, 100);
+public class Warrior extends CharacterEntity {
+    public CharacterEntity createWarrior () {
+        CharacterEntity a = new CharacterEntity ("Warrior", 150, 50, 100, 100);
         return a;
     }
 }

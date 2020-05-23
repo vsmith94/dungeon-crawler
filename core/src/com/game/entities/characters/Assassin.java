@@ -9,9 +9,9 @@ package com.game.entities.characters;
  *
  * @author lpela
  */
-public class Assassin extends Character {
-    public Character createAssassin () {
-        Character a = new Character ("Assassin", 120, 75, 50, 100);
+public class Assassin extends CharacterEntity {
+    public CharacterEntity createAssassin () {
+        CharacterEntity a = new CharacterEntity ("Assassin", 120, 75, 50, 100);
         return a;
     }
 }
