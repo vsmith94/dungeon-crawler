@@ -45,7 +45,11 @@ public class SimpleMapRenderer implements MapRenderer {
             MapObjects mapObjects = layer.getObjects();
             for (MapObject mapObject : mapObjects) {
                 Entity entity = (Entity) mapObject;
-                this.spriteBatch.draw(entity.getSprite(), entity.getSprite().getX(), entity.getSprite().getY());
+                this.spriteBatch.draw(entity.getSprite(), 
+                        entity.getSprite().getX(), 
+                        entity.getSprite().getY(),
+                        entity.getSprite().getWidth(), 
+                        entity.getSprite().getHeight());
             }
         }
     }

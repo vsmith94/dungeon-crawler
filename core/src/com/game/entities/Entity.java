@@ -31,4 +31,12 @@ public class Entity extends MapObject {
     public Sprite getSprite(){
         return sprite;
     }
+    
+    public void setSprite(Sprite sprite){
+        this.sprite = sprite;
+    }
+    
+    public void setSprite(Texture texture){
+        this.sprite = new Sprite(texture);
+    }
 }
