@@ -10,6 +10,8 @@ package com.game.skills;
  * @author lpela
  */
 public interface DamageBP {
-    public void damageDone ();
-    public void damageHealed ();
+
+    public void damageDone();
+
+    public void damageHealed();
 }

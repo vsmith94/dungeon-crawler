@@ -10,7 +10,10 @@ package com.game.skills;
  * @author lpela
  */
 public interface DebuffBP {
-    public void setCondition ();
-    public void damageCondition ();
-    public void setDebuff ();
+
+    public void setCondition();
+
+    public void damageCondition();
+
+    public void setDebuff();
 }

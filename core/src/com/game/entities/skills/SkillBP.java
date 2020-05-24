@@ -10,6 +10,8 @@ package com.game.skills;
  * @author lpela
  */
 public interface SkillBP {
-    public void info ();
-    public void effect ();
+
+    public void info();
+
+    public void effect();
 }

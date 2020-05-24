@@ -10,8 +10,9 @@ package com.game.entities.characters;
  * @author lpela
  */
 public class Mage extends Character {
-    public Character createMage () {
-        Character a = new Character ("Mage", 100, 100, 50, 100);
+
+    public Character createMage() {
+        Character a = new Character("Mage", 100, 100, 50, 100);
         return a;
     }
 }
