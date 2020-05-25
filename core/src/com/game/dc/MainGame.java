@@ -23,7 +23,7 @@ public class MainGame extends ApplicationAdapter {
         int height = 8;
         for (int a = 0; a < width; a++) {
             for (int b = 0; b < height; b++) {
-                com.game.map.Walls.floor (x+(32*a),y+(32*b));
+                com.game.map.Walls.drawFloor (x+(32*a),y+(32*b));
     
                 if (b == height - 1) {
                     batch.draw(wall, x + (32 * a), y + (32 * (b + 1) + 1));

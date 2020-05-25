@@ -5,28 +5,11 @@
  */
 package com.game.map;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
 /**
  *
  * @author lpela
  */
-public class Walls extends ApplicationAdapter {
-
-    static SpriteBatch batch;
-    static Texture floor, wall, wallTop, plaster, boulder;
-
-    @Override
-    public void create() {
-        batch = new SpriteBatch();
-        floor = new Texture("floor33.gif");
-        wall = new Texture("wall12.gif");
-        wallTop = new Texture("roomWall33.gif");
-        plaster = new Texture("roomFloor22.gif");
-        boulder = new Texture("boulder.gif");
-    }
+public class Draw extends MapTextures {    
 
     public void topWall(int x, int y) {
         batch.draw(wall, x, y + 1);
@@ -51,7 +34,7 @@ public class Walls extends ApplicationAdapter {
         batch.draw(floor, x, y + 16);
     }
 
-    static public void floor(int x, int y) {
+    static public void drawFloor(int x, int y) {
         batch.draw(floor, x, y);
     }
 
@@ -89,5 +72,7 @@ public class Walls extends ApplicationAdapter {
         batch.draw(wallTop, x, y);
         batch.draw(floor, x + 16, y + 16);
     }
+    
+    public 
 
 }
