@@ -1,60 +1,57 @@
 package com.game.dc;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.Map;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapRenderer;
+import com.badlogic.gdx.utils.Scaling;
+import com.badlogic.gdx.utils.viewport.ScalingViewport;
+import com.game.entities.Entity;
+import com.game.entities.characters.CharacterEntity;
+import com.game.util.SimpleMapRenderer;
 
-public class MainGame extends ApplicationAdapter {
+public class MainGame extends Game {
 
     SpriteBatch batch;
-    Texture floor, wall, wallTop, plaster, boulder;
+    Texture img;
+    ScalingViewport viewport;
+    Map map;
+    SimpleMapRenderer mapRenderer;
 
+    @Override
+    public void create() {
+        batch = new SpriteBatch();
+
+        // Map Testing stuff
+        CharacterEntity player = new CharacterEntity(new Texture("player_idle.png"));
+        map = new Map();
+        MapLayer mapLayer = new MapLayer();
+        mapLayer.getObjects().add(player);
+        player.getSprite().setSize(64, 64);
+        map.getLayers().add(mapLayer);
+        mapRenderer = new SimpleMapRenderer(map, batch);
+
+        viewport = new ScalingViewport(Scaling.fit, 1280, 720);
+        viewport.apply(false);
+    }
 
     @Override
     public void render() {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        // Reset screen
+        Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        // Viewport controls
+        viewport.update(1280, 720);
+        batch.setProjectionMatrix(viewport.getCamera().combined);
+
         batch.begin();
-        int x = 100;
-        int y = 100;
-        int width = 5;
-        int height = 8;
-        for (int a = 0; a < width; a++) {
-            for (int b = 0; b < height; b++) {
-                com.game.map.Walls.drawFloor (x+(32*a),y+(32*b));
-    
-                if (b == height - 1) {
-                    batch.draw(wall, x + (32 * a), y + (32 * (b + 1) + 1));
-                    batch.draw(wall, x + (32 * a), y + (32 * (b + 2)));
-                    batch.draw(wallTop, x + (32 * a), y + (32 * (b + 3)));
-                    batch.draw(plaster, x + (32 * a), y + (32 * (b + 3) + 16));
-                    batch.draw(plaster, x + (32 * a), y + (32 * (b + 4)));
-                }
-            }
-        }
-        for (int b = 0; b < height + 2; b++) {
-            if (b < height) {
-                batch.draw(wall, x + (32 * width + 1), y + (32 * b));
-                batch.draw(wallTop, x + (32 * width + 24), y + (32 * b));
-                batch.draw(plaster, x + (32 * (width + 1) + 8), y + (32 * b));
-                batch.draw(plaster, x + (32 * (width + 2)), y + (32 * b));
-            } else {
-                batch.draw(wall, x + (32 * width), y + (32 * b));
-                batch.draw(wallTop, x + (32 * width + 24), y + (32 * b));
-                batch.draw(plaster, x + (32 * (width + 1) + 8), y + (32 * b));
-                batch.draw(plaster, x + (32 * (width + 2)), y + (32 * b));
-            }
-        }
-        batch.draw(wallTop, x + (32 * width), y + (32 * (height + 2)));
-        batch.draw(wallTop, x + (32 * (width + 1)), y + (32 * (height + 2)));
-        batch.draw(plaster, x + (32 * (width+1) + 8), y + (32 * (height + 2)));
-        batch.draw(plaster, x + (32 * (width + 2)), y + (32 * (height + 2)));
-        for (int a=0;a<3;a++){
-            batch.draw(plaster, x + (32 * (width+a)), y + (32 * (height + 2) + 16));
-            batch.draw(plaster, x + (32 * (width+a)), y + (32 * (height + 3)));
-        }
+        mapRenderer.render();
+        // batch.draw(img, 0, 0, 800, 600);
 
         batch.end();
     }
@@ -62,10 +59,6 @@ public class MainGame extends ApplicationAdapter {
     @Override
     public void dispose() {
         batch.dispose();
-        floor.dispose();
-        wall.dispose();
-        wallTop.dispose();
-        plaster.dispose();
-        boulder.dispose();
+        img.dispose();
     }
 }
