@@ -8,10 +8,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MainGame extends ApplicationAdapter {
 
-    com.game.map.Walls room1;
-    SpriteBatch batch;/*
+    SpriteBatch batch;
     Texture floor, wall, wallTop, plaster, boulder;
-*/
+
 
     @Override
     public void render() {
@@ -22,10 +21,9 @@ public class MainGame extends ApplicationAdapter {
         int y = 100;
         int width = 5;
         int height = 8;
-        room1 = new com.game.map.Walls ();
         for (int a = 0; a < width; a++) {
             for (int b = 0; b < height; b++) {
-                room1.floor (x+(32*a),y+(32*b));/*
+                com.game.map.Walls.floor (x+(32*a),y+(32*b));
     
                 if (b == height - 1) {
                     batch.draw(wall, x + (32 * a), y + (32 * (b + 1) + 1));
@@ -33,9 +31,9 @@ public class MainGame extends ApplicationAdapter {
                     batch.draw(wallTop, x + (32 * a), y + (32 * (b + 3)));
                     batch.draw(plaster, x + (32 * a), y + (32 * (b + 3) + 16));
                     batch.draw(plaster, x + (32 * a), y + (32 * (b + 4)));
-                }*/
+                }
             }
-        }/*
+        }
         for (int b = 0; b < height + 2; b++) {
             if (b < height) {
                 batch.draw(wall, x + (32 * width + 1), y + (32 * b));
@@ -68,6 +66,6 @@ public class MainGame extends ApplicationAdapter {
         wall.dispose();
         wallTop.dispose();
         plaster.dispose();
-        boulder.dispose();*/
+        boulder.dispose();
     }
 }
