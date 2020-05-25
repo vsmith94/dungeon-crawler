@@ -15,6 +15,10 @@ public class Character {
     private int health;
     private int damage;
     private int defense;
+    private int tempHealth;
+    private int tempDamage;
+    private int tempDefense;
+
     
     // Standard Builder
     public Character (){}
