@@ -40,12 +40,14 @@ public class SimpleMapRenderer implements MapRenderer {
 
     @Override
     public void render() {
+        //TODO: vinny - add functionality to MapLayers allowing a custom value of the layer to be added.
         MapLayers mapLayers = map.getLayers();
         for (MapLayer layer : mapLayers) {
             MapObjects mapObjects = layer.getObjects();
             for (MapObject mapObject : mapObjects) {
                 Entity entity = (Entity) mapObject;
-                this.spriteBatch.draw(entity.getSprite(), 
+                this.spriteBatch.draw(
+                        entity.getSprite(), 
                         entity.getSprite().getX(), 
                         entity.getSprite().getY(),
                         entity.getSprite().getWidth(), 
