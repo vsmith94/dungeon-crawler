@@ -5,12 +5,14 @@
  */
 package com.game.map;
 
+import com.game.entities.terrain.Textures;
+
 /**
  *
  * @author lpela
  */
-public class Draw extends MapTextures {    
-
+public class Draw extends Textures {    
+/*
     public void topWall(int x, int y) {
         batch.draw(wall, x, y + 1);
         batch.draw(wall, x, y + 32);
@@ -74,5 +76,5 @@ public class Draw extends MapTextures {
     }
     
     public 
-
+*/
 }

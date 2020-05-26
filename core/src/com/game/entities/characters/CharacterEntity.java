@@ -28,13 +28,21 @@ public class CharacterEntity extends Entity {
     // Standard Builder
     public CharacterEntity() {
     }
-    
-    public CharacterEntity(Sprite sprite){
+
+    public CharacterEntity(Sprite sprite) {
         super(sprite);
     }
-    
-    public CharacterEntity(Texture texture){
+
+    public CharacterEntity(Sprite sprite, float x, float y) {
+        super(sprite, x, y);
+    }
+
+    public CharacterEntity(Texture texture) {
         super(texture);
+    }
+
+    public CharacterEntity(Texture texture, float x, float y) {
+        super(texture, x, y);
     }
 
     // CharacterEntity Builder

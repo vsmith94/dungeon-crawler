@@ -10,5 +10,6 @@ package com.game.map;
  * @author Vinicius Smith
  */
 public class MapCreator {
-    
+    //Trazer o RandomRoomGenerator pra cá
+    //Posicionador de salas e checagem de overlays
 }
