@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.game.skills;
+package com.game.entities.skills;
 
 /**
  *
  * @author lpela
  */
 public interface SkillBP {
-    public void info ();
-    public void effect ();
+    public void info();
+
+    public void effect();
 }
