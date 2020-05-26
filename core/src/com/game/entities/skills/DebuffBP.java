@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.game.skills;
+package com.game.entities.skills;
 
 /**
  *
  * @author lpela
  */
 public interface DebuffBP {
-    public void setCondition ();
-    public void damageCondition ();
-    public void setDebuff ();
+    public void setCondition();
+
+    public void damageCondition();
+
+    public void setDebuff();
 }
