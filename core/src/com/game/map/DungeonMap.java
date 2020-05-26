@@ -29,17 +29,18 @@ public class DungeonMap extends Map {
     }
 
     /**
-     * Adds a given object to the layer chosen by the index value. If the index does contain
-     * a layer, the method will create all layers between the last existing layer and the
-     * target layer. Index can't be less than 0;
+     * Adds a given object to the layer chosen by the index value. If the index
+     * does contain a layer, the method will create all layers between the last
+     * existing layer and the target layer. Index can't be less than 0;
+     *
      * @param index layer index
      * @param mapObject object to add to the layer
      */
-    public void addObjectToLayer(int index, MapObject mapObject){
-        if(index < 0){
+    public void addObjectToLayer(int index, MapObject mapObject) {
+        if (index < 0) {
             return;
         }
-        
+
         //Check if doesn't exist.
         if (index > this.getLayers().getCount() - 1) {
             //Create necessary layers until target layer
@@ -47,8 +48,7 @@ public class DungeonMap extends Map {
                 this.getLayers().add(new DungeonLayer());
             }
         }
-        else{
-            this.getLayers().get(index).getObjects().add(mapObject);
-        }
+        
+        this.getLayers().get(index).getObjects().add(mapObject);
     }
 }
