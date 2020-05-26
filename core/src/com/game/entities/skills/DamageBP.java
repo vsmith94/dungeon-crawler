@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.game.entities.skills;
+package com.game.skills;
 
 /**
  *
  * @author lpela
  */
 public interface DamageBP {
-    public void damageDone();
-
-    public void damageHealed();
+    public void damageDone ();
+    public void damageHealed ();
 }

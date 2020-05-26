@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.game.entities.skills;
+package com.game.skills;
 
 /**
  *
  * @author lpela
  */
 public interface BuffBP {
-    public void statusIncrease();
-
-    public void healOverTime();
+    public void statusIncrease ();
+    public void healOverTime ();
 }
