@@ -1,6 +1,6 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import com.game.map.DungeonMap;
 
@@ -18,11 +18,14 @@ public class TestClass {
 
     @Test
     public void layerAddLayerWhenThereAreNoLayers(){
-        dungeonMap.
+        dungeonMap.addObjectToLayer(5, null);
+        assertEquals(6, dungeonMap.getLayers().size(), "Amount of layers");
     }
 
     @Test
     public void layerAddLayerAtIndex1() {
-
+        dungeonMap.addObjectToLayer(2, null); // Total of 3 layers.
+        dungeonMap.addObjectToLayer(1, null);
+        assertEquals(1 ,dungeonMap.getLayers().get(1).getObjects().getCount(), "Size message");
     }
 }
