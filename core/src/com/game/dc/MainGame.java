@@ -52,6 +52,7 @@ public class MainGame extends Game {
         batch.begin();
         mapRenderer.render();
         // batch.draw(img, 0, 0, 800, 600);
+
         batch.end();
     }
 

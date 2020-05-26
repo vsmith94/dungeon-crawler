@@ -20,7 +20,7 @@ public class TestClass {
     public void layerAddLayerWhenThereAreNoLayers(){
         dungeonMap.
     }
-    
+
     @Test
     public void layerAddLayerAtIndex1() {
 
