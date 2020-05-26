@@ -14,29 +14,40 @@ import com.badlogic.gdx.maps.MapObject;
  * @author Vinicius Smith
  */
 public class Entity extends MapObject {
+
     Sprite sprite;
-    
-    public Entity(){
-        
+
+    public Entity() {
+
     }
-    
-    public Entity(Sprite sprite){
+
+    public Entity(Sprite sprite) {
         this.sprite = sprite;
     }
-    
-    public Entity(Texture texture){
+
+    public Entity(Sprite sprite, float x, float y) {
+        this.sprite = sprite;
+        this.sprite.setPosition(x, y);
+    }
+
+    public Entity(Texture texture) {
         this.sprite = new Sprite(texture);
     }
-    
-    public Sprite getSprite(){
+
+    public Entity(Texture texture, float x, float y) {
+        this.sprite = new Sprite(texture);
+        this.sprite.setPosition(x, y);
+    }
+
+    public Sprite getSprite() {
         return sprite;
     }
-    
-    public void setSprite(Sprite sprite){
+
+    public void setSprite(Sprite sprite) {
         this.sprite = sprite;
     }
-    
-    public void setSprite(Texture texture){
+
+    public void setSprite(Texture texture) {
         this.sprite = new Sprite(texture);
     }
 }
